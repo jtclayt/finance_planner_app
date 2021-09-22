@@ -11,8 +11,6 @@ jobs:
     defaults:
       run:
         working-directory: ./app
-      with:
-        working-directory: ./app
 
     steps:
     - uses: actions/checkout@v2
