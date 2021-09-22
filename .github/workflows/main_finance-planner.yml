@@ -10,9 +10,11 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: 'finance-planner'    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'app/build'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  AZURE_WEBAPP_NAME: 'finance-planner'
+  AZURE_WEBAPP_PACKAGE_PATH: 'app/build'
+  NODE_VERSION: '14.x'
+  REACT_APP_TD_CLIENT_KEY: ${{ secrets.REACT_APP_TD_CLIENT_KEY }}
+  REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
 jobs:
   build-and-deploy:
