@@ -29,15 +29,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Clean install and build
-      run: |
-      cd app
-      npm ci
-      npm build --if-present
+      run: npm ci
+      run: npm build --if-present
     - name: Run tests
-      run: |
-      cd app
-      npm test
+      run: npm test
     - name: Lint code
-      run: |
-      cd app
-      npm lint
+      run: npm lint
