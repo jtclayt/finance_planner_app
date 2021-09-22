@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  # Use to spin up app container
+  # Use: docker-compose up app
+  app:
+    build:
+      context: ./app
+      dockerfile: ../dockerfiles/app.dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./env/app.env
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+
+
+  ### Utility containers ###
+
+  # Use for running npm commands in UI code volume
+  # Use: docker-compose run --rm npm "command"
+  npm:
+    build:
+      context: ./app
+      dockerfile: ../dockerfiles/npm.dockerfile
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    entrypoint: [ "npm" ]

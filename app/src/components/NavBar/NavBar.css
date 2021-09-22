@@ -1,0 +1,20 @@
+.NavBar {
+  padding: 15px 50px;
+  margin-bottom: 25px;
+}
+
+.NavBar .brand {
+  font-size: 1.8rem;
+}
+
+.NavBar .link {
+  font-size: 1.4rem;
+}
+
+.Navbar.navbar {
+  width: 1000px;
+}
+
+.Navbar #site-nav #profile {
+  align-self: flex-end;
+}
