@@ -32,7 +32,7 @@ jobs:
           name: node-app
           path: |
             app/
-            !node_modules/
+            !app/node_modules/
 
   deploy:
     runs-on: ubuntu-latest
