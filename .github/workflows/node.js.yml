@@ -1,8 +1,6 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -10,29 +8,21 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    defaults:
+      run:
+        working-directory: ./app
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 14.x
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '14.x'
         cache: 'npm'
-    - name: Clean install and build
-    - run: |
-      cd app
-      npm ci
-      npm run build --if-present
-    -name: Run tests
-    - run: |
-      cd app
-      npm test
-    -name: Lint code
-    - run: |
-      cd app
-      npm lint
+        cache-dependency-path: app/package-lock.json
+    - name: Clean install
+      run: npm ci
+    - name: Build
+      run: npm build --if-present
+    - name: Lint code
+      run: npm run lint
