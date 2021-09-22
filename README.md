@@ -1,7 +1,7 @@
 # Stock Portfolio Tracker
 
-This is a Django, React, and MySQL application for tracking investments, budgets,
-and other personal finance goals. This app is still early in development.
+This is a React frontend for a finance planning application. It connects to a separate
+[API Repo](https://github.com/jtclayt/finance_planner_api).
 
 
 ## Planned features:
@@ -15,20 +15,8 @@ to buy in each stock to meet distribution
 - Track net worth with monthly reports and view graph of completed reports
 
 
-## To use
-1. Clone the repo
-2. Will need docker and docker-compose installed
-3. Rename files in env folder to just api.env, app.env, and mysql.env, feel free to add
-your own passwords, secret keys, etc
-4. Run in terminal: docker-compose up app (If this errors may need to try a second time)
-5. React app will be on http://localhost:3000 and Django api will be on
-http://localhost:8000
-
-
 ## Other Info
 - This app uses the TD Ameritrade Developer API (https://developer.tdameritrade.com/)
-- To set it up locally you will need to make an account and register an app.
-- Once registered place your API key in the app.env file before building docker images.
 
 
 ### Other other stuff
