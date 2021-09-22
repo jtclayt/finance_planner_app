@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: npm build --if-present
     - name: Lint code
-      run: npm lint
+      run: npm run lint
