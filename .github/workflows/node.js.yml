@@ -7,8 +7,6 @@ on:
 jobs:
   build:
 
-    working-directory: ./app
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -23,6 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        working-directory: ./app
     - name: Clean install
       run: npm ci
     - name: Build
